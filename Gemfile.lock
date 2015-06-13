@@ -1,0 +1,30 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    frequent-algorithm (0.0.4)
+    rack (1.6.1)
+    rack-protection (1.5.3)
+      rack
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    sinatra-hijacker (0.0.2)
+      rack (~> 1.5)
+      tubesock
+    tilt (2.0.1)
+    tubesock (0.2.5)
+      rack (>= 1.5.0)
+      websocket (>= 1.1.0)
+    websocket (1.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  frequent-algorithm
+  sinatra
+  sinatra-hijacker
+
+BUNDLED WITH
+   1.10.2
