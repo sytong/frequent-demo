@@ -1,3 +1,8 @@
+# 
+# This is based on the sinatra-hijacker sample
+# https://github.com/minoritea/sinatra-hijacker/blob/master/sample/sinatra.rb
+#
+
 require 'sinatra'
 require 'rack/handler/puma'
 require 'sinatra/hijacker'
@@ -9,7 +14,7 @@ class Demo < Sinatra::Base
   register Sinatra::Hijacker
 
   get '/' do
-    "Hello"
+    index_html
   end
 
   websocket '/ws' do
@@ -23,6 +28,25 @@ class Demo < Sinatra::Base
       Trend::CONNECTIONS.add ws 
     }
     ws.onmessage{|msg| puts msg}
+  end
+
+  helpers do
+    def index_html
+      <<-EOS
+      <html>
+        <body>
+          <script>
+            var ws = new WebSocket('ws://#{env["HTTP_HOST"]}/ws');
+            ws.onmessage = function(event){
+              var span = document.createElement("span");
+              span.textContent = event.data;
+              document.body.appendChild(span);
+            };
+          </script>
+        </body>
+      </html>
+      EOS
+    end
   end
 end
 

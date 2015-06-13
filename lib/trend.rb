@@ -9,12 +9,12 @@ module Trend
   FREQUENT_K = 5
 
   class Analyzer
-  	def initialize(n=FREQUENT_N, b=FREQUENT_B, k=FREQUENT_K)
-  	  @n = n
-  	  @b = b
-  	  @k = k
+    def initialize(n=FREQUENT_N, b=FREQUENT_B, k=FREQUENT_K)
+      @n = n
+      @b = b
+      @k = k
 
-  	  @homer = Homer.enumerate
+      @homer = Homer.enumerate
       @alg = Frequent::Algorithm.new(@n, @b, @k)
     end
 
@@ -22,7 +22,6 @@ module Trend
       puts "start"
       @thread = Thread.new {
         while true do
-          puts "read...."
           FREQUENT_B.times{ @alg.process(@homer.next) }
           result = @alg.report
           puts result
