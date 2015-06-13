@@ -12,7 +12,8 @@ _TODO_:
 
 ## Usage
 
-Check out the code and at the command prompt type:
+Check out the code and run `bundle`.
+Then start the server by:
     
     rackup config.ru
     
