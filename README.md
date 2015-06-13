@@ -5,13 +5,19 @@
 This is still a very early implementation.
 
 _TODO_:
-* Add a HTML page to display the results
+* ~~Add a HTML page to display the results~~
+* Display results in a table
 * Bug fixes
 * Graphical visualization?
 
 ## Usage
 
-Will add this once there is a convenient HTML page to display data.
+Check out the code and at the command prompt type:
+    
+    rackup config.ru
+    
+
+Then open `http://localhost:9292` using Google Chrome.
 
 ## Development
 
