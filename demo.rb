@@ -19,9 +19,7 @@ class Demo < Sinatra::Base
 
   websocket '/ws' do
     ws.onopen { 
-      puts Trend::CONNECTIONS
       if Trend::CONNECTIONS.empty?
-      	puts "Create Analyzer"
       	@analyzer = Trend::Analyzer.new
       	@analyzer.start
       end
@@ -38,9 +36,9 @@ class Demo < Sinatra::Base
           <script>
             var ws = new WebSocket('ws://#{env["HTTP_HOST"]}/ws');
             ws.onmessage = function(event){
-              var span = document.createElement("span");
-              span.textContent = event.data;
-              document.body.appendChild(span);
+              var text = document.createTextNode(event.data);
+              document.body.appendChild(text);
+              document.body.appendChild(document.createElement("br"));
             };
           </script>
         </body>

@@ -1,6 +1,6 @@
 # frequent-demo
 
-`frequent-demo` is an experiment of the visualization of the [frequent-algorithm](https://github.com/buruzaemon/frequent-algorithm) gem. 
+`frequent-demo` is an experiment to find ways in visualizing of the [frequent-algorithm](https://github.com/buruzaemon/frequent-algorithm) gem. Here we are using text from some of Homer's work (Iliad and Odyssey), feeding the into the frequent-algorithm and capture what are the trending words in the stories.
 
 This is still a very early implementation.
 
@@ -27,6 +27,8 @@ The following gems have been used in the implementation of this demo:
 * [`sinatra-hijacker`](https://github.com/minoritea/sinatra-hijacker)
 * [`tubesock`](https://github.com/ngauthier/tubesock)
 * [`frequent-algorithm`](https://github.com/buruzaemon/frequent-algorithm)
+
+The demo also requires [`puma`](https://github.com/puma/puma) to run.
 
 ## License
 

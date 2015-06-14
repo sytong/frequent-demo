@@ -19,7 +19,6 @@ module Trend
     end
 
     def start
-      puts "start"
       @thread = Thread.new {
         while true do
           FREQUENT_B.times{ @alg.process(@homer.next) }
