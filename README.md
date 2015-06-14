@@ -1,6 +1,6 @@
 # frequent-demo
 
-`frequent-demo` is an experiment to find ways in visualizing of the [frequent-algorithm](https://github.com/buruzaemon/frequent-algorithm) gem. Here we are using text from some of Homer's work (Iliad and Odyssey), feeding the into the frequent-algorithm and capture what are the trending words in the stories.
+`frequent-demo` is an experiment to find out how we can visualize the data produced by the [frequent-algorithm](https://github.com/buruzaemon/frequent-algorithm) gem. Here we are using text from some of Homer's work (Iliad and Odyssey), feeding them into the frequent-algorithm and capture what are the trending words in the stories.
 
 This is still a very early implementation.
 
