@@ -1,4 +1,5 @@
 require 'frequent-algorithm'
+require 'json'
 require_relative 'homer'
 
 module Trend
@@ -21,13 +22,19 @@ module Trend
     def start
       @thread = Thread.new {
         while true do
-          FREQUENT_B.times{ @alg.process(@homer.next) }
-          result = @alg.report
-          puts result
-          CONNECTIONS.each do |conn|
-            conn.send_data result
+          begin
+            FREQUENT_B.times{ @alg.process(@homer.next) }
+            result = @alg.report
+            puts result
+            CONNECTIONS.each do |conn|
+              conn.send_data result.to_json
+            end
+          rescue
+            $stderr.puts("ERROR: #{$!}")
+            $@.each do |err|
+              $stderr.puts("  #{err}")
+            end
           end
-
           sleep 5
         end
       }

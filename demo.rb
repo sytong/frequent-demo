@@ -33,12 +33,28 @@ class Demo < Sinatra::Base
       <<-EOS
       <html>
         <body>
+          <table id="homer">
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
           <script>
             var ws = new WebSocket('ws://#{env["HTTP_HOST"]}/ws');
             ws.onmessage = function(event){
-              var text = document.createTextNode(event.data);
-              document.body.appendChild(text);
-              document.body.appendChild(document.createElement("br"));
+              var data = $.parseJSON(event.data);
+              if ($.isEmptyObject(data) == false) {
+                $tbody = $('#homer').find('tbody');
+                $tbody.empty();
+                $.each(data, function(word, count) {
+                  $tbody.append("<tr><td>"+word+"</td><td>"+count+"</td></tr>")
+                });
+              }
             };
           </script>
         </body>
