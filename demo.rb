@@ -18,12 +18,13 @@ class Demo < Sinatra::Base
   end
 
   websocket '/ws' do
-    ws.onopen { 
+    ws.onopen {
       if Trend::CONNECTIONS.empty?
       	@analyzer = Trend::Analyzer.new
       	@analyzer.start
       end
-      Trend::CONNECTIONS.add ws 
+      Trend::CONNECTIONS.add ws
+      puts "Sockets connected = #{Trend::CONNECTIONS.size}"
     }
     ws.onmessage{|msg| puts msg}
   end
@@ -48,12 +49,14 @@ class Demo < Sinatra::Base
             var ws = new WebSocket('ws://#{env["HTTP_HOST"]}/ws');
             ws.onmessage = function(event){
               var data = $.parseJSON(event.data);
+              var $tbody = $('#homer').find('tbody');
+              $tbody.empty();
               if ($.isEmptyObject(data) == false) {
-                $tbody = $('#homer').find('tbody');
-                $tbody.empty();
                 $.each(data, function(word, count) {
                   $tbody.append("<tr><td>"+word+"</td><td>"+count+"</td></tr>")
                 });
+              } else {
+                $tbody.append("<tr><td colspan='2'>Pending data...</td></tr>")
               }
             };
           </script>
