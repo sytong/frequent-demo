@@ -13,6 +13,8 @@ _TODO_:
     * Use D3 Donut Chart (rough cut is ready)
     * Use HighChart Donut Chart?
     * What else?
+* Improvements
+    * Modularize Sinatra code
 
 ## Usage
 
