@@ -4,7 +4,8 @@
 
 This is still a very early implementation. 
 
-_TODO_:
+## TODO
+
 * ~~Add a HTML page to display the results~~
 * ~~Display results in a table~~
 * Bug fixes
@@ -27,6 +28,11 @@ Then start the server by:
 Then open `http://localhost:9292` using Google Chrome to see the simple HTML table presentations.
 Open `http://localhost:9292/d3_donut` to see animated D3 Donut Chart in action.
 
+## Screenshots
+
+### Donut chart using D3
+<img src="https://github.com/sytong/frequent-demo/blob/master/docs/images/donut-d3.png">
+
 ## Development
 
 The following gems have been used in the implementation of this demo:
@@ -36,6 +42,8 @@ The following gems have been used in the implementation of this demo:
 * [`frequent-algorithm`](https://github.com/buruzaemon/frequent-algorithm)
 
 The demo also requires [`puma`](https://github.com/puma/puma) to run.
+
+For visualization, [`D3.js`](http://d3js.org/) has been used.
 
 ## License
 
